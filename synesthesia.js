@@ -47,5 +47,5 @@ $(document).ready(function(){
         });
     }
 
-    window.setInterval(function(){loopf();},10);
+    window.setInterval(function(){loopf();}, 10);
 });
