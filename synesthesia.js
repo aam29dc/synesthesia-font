@@ -19,8 +19,8 @@ window.requestAnimFrame = function(){
 }();
 
 function drawsyn(){
-    for(let i = 0; i < syn.length; i++){
-        syn[i].style.backgroundImage = `linear-gradient(90deg, rgb(${r}, ${g}, ${b}), rgb(${b}, ${r}, ${g}), rgb(${g}, ${b}, ${r}))`;
+    for(let x = 0; x < syn.length; x++){
+        syn[x].style.backgroundImage = `linear-gradient(90deg, rgb(${r}, ${g}, ${b}), rgb(${b}, ${r}, ${g}), rgb(${g}, ${b}, ${r}))`;
     }
     
     if(r == 255 && g == 0 && b == 0){     //red
@@ -61,4 +61,4 @@ function drawsyn(){
     window.requestAnimFrame(drawsyn);
 }
 
-drawsyn();
+window.requestAnimFrame(drawsyn);
