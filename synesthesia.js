@@ -5,6 +5,19 @@ var [i, j, k] = [0, 0, 0];
 
 let syn = document.getElementsByClassName('syn');
 
+window.requestAnimFrame = function(){
+    return (
+        window.requestAnimationFrame       || 
+        window.webkitRequestAnimationFrame || 
+        window.mozRequestAnimationFrame    || 
+        window.oRequestAnimationFrame      || 
+        window.msRequestAnimationFrame     || 
+        function(callback){
+            window.setTimeout(callback, 1000 / 60);
+        }
+    );
+}();
+
 function drawsyn(){
     for(let i = 0; i < syn.length; i++){
         syn[i].style.backgroundImage = `linear-gradient(90deg, rgb(${r}, ${g}, ${b}), rgb(${b}, ${r}, ${g}), rgb(${g}, ${b}, ${r}))`;
@@ -25,7 +38,7 @@ function drawsyn(){
         j = 0;
         k = 1;
     }
-    else if(r == 0 && g == 255 && b == 255){    //sky
+    else if(r == 0 && g == 255 && b == 255){    //cyan
         i = 0;
         j = -1;
         k = 0;
@@ -44,6 +57,8 @@ function drawsyn(){
     r += i;
     g += j;
     b += k;
+    
+    window.requestAnimFrame(drawsyn);
 }
 
-window.setInterval(function(){drawsyn();},10);
+drawsyn();
